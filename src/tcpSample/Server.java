@@ -1,4 +1,4 @@
-package tcpSample.chatRoom;
+package tcpSample;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

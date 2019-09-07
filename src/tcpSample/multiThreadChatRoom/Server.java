@@ -1,4 +1,4 @@
-package tcpSample.chatRoom;
+package tcpSample.multiThreadChatRoom;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,20 +12,20 @@ import java.net.Socket;
 public class Server {
     public static void main(String[] args) throws IOException {
         //Create Server
-        ServerSocket server = new ServerSocket(6666);
-        //Connect server to client
-        while (true){
+        ServerSocket server = new ServerSocket(7777);
         Socket client = server.accept();
-        //Input data 输入流
+        //Connect server to client
         DataInputStream dataInputStream = new DataInputStream(client.getInputStream());
-        String message = dataInputStream.readUTF();
-        System.out.println("Info from client: "+message);
-
-
-        //Output data 输出流
         DataOutputStream dataOutputStream = new DataOutputStream(client.getOutputStream());
-        dataOutputStream.writeUTF("Server -->" + message);
-        dataOutputStream.flush();
+
+        while (true){
+            //Input data 输入流
+            String message = dataInputStream.readUTF();
+            System.out.println("Info from client: "+message);
+
+            //Output data 输出流
+            dataOutputStream.writeUTF("Server -->" + message);
+            dataOutputStream.flush();
         }
     }
 }
