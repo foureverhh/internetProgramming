@@ -9,7 +9,7 @@ import java.net.Socket;
 public class Client {
     public static void main(String[] args) throws IOException {
         //创建客户端
-        Socket client = new Socket("localhost",8888);
+        Socket client = new Socket("localhost",9999);
 
         //接收来自服务端的数据
         BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
